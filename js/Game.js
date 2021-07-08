@@ -1,8 +1,5 @@
 class Game {
-  
-  constructor() {
-   
-  }
+  constructor() {}
 
   getState() {
     var gameStateRef = database.ref("gameState");
@@ -37,23 +34,23 @@ class Game {
     powerCoins = new Group();
 
     // Adding fuel sprite in the game
-    this.addSpirtes(fuels, 4, fuelImage, 0.02);
+    this.addSprites(fuels, 4, fuelImage, 0.02);
 
     // Adding coin sprite in the game
-    this.addSpirtes(powerCoins, 18, powerCoinImage, 0.09);
+    this.addSprites(powerCoins, 18, powerCoinImage, 0.09);
   }
 
-  addSpirtes(spriteGroup, numberOfSprites, spirteImage, scale) {
+  addSprites(spriteGroup, numberOfSprites, spriteImage, scale) {
     for (var i = 0; i < numberOfSprites; i++) {
       var x, y;
 
       x = random(width / 2 + 150, width / 2 - 150);
       y = random(-height * 4.5, height - 400);
-      var spirte = createSprite(x, y);
-      spirte.addImage("spirte", spirteImage);
+      var sprite = createSprite(x, y);
+      sprite.addImage("sprite", spriteImage);
 
-      spirte.scale = scale;
-      spriteGroup.add(spirte);
+      sprite.scale = scale;
+      spriteGroup.add(sprite);
     }
   }
 
@@ -61,13 +58,10 @@ class Game {
     form.hide();
     form.titleImg.position(40, 50);
     form.titleImg.class("gameTitleAfterEffect");
-
-   
   }
 
   play() {
     this.handleElements();
-   
 
     Player.getPlayersInfo();
 
@@ -104,8 +98,6 @@ class Game {
         }
       }
 
-    
-
       drawSprites();
     }
   }
@@ -129,7 +121,6 @@ class Game {
       collected.remove();
     });
   }
-
 
   // C39
   showFuelBar() {
@@ -186,6 +177,4 @@ class Game {
     this.leader1.html(leader1);
     this.leader2.html(leader2);
   }
-
-  
 }
